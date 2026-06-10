@@ -31,7 +31,7 @@ function Navbar() {
       <nav
         className={isHome ? 'bg-transparent' : 'bg-[#062738]'}
       >
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-2 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-[90vw] flex-col gap-5 px-5 py-2 md:flex-row md:items-center md:justify-between">
           <Link to="/" className="inline-flex w-fit items-center">
             <img src="/images/logo.png" alt="Saudi Visa Service" className="h-16 w-auto md:h-20" />
           </Link>

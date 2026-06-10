@@ -3,7 +3,9 @@ import AboutUs from '../components/homepage/AboutUs.jsx'
 import HowItWorks from '../components/homepage/HowItWorks.jsx'
 import OurVisaServices from '../components/homepage/OurVisaServices.jsx'
 import WhyChooseUs from '../components/homepage/WhyChooseUs.jsx'
-
+import Testimonials from '../components/homepage/Testimonials.jsx'
+import JourneyBanner from '../components/homepage/JourneyBanner.jsx'
+import VisaForm from '../components/homepage/VisaForm.jsx'
 function Home() {
   return (
     <>
@@ -12,6 +14,9 @@ function Home() {
       <AboutUs />
       <WhyChooseUs />
       <HowItWorks />
+      <Testimonials/>
+      <JourneyBanner/>
+      <VisaForm/>
     </>
   )
 }

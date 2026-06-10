@@ -9,9 +9,9 @@ const stats = [
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#06293b] text-white">
+    <section className="relative min-h-[110vh] overflow-hidden bg-[#06293b] text-white">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center "
         style={{ backgroundImage: 'url("/images/bg-image.png")' }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#062738]/80 via-[#0b4058]/25 to-[#062738]/75" />
@@ -22,7 +22,7 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center"
       />
 
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-8 px-5 pb-32 pt-44 lg:grid-cols-[1fr_0.9fr_1fr] lg:pb-24">
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-[90vw] items-center gap-8 px-5 pb-32 pt-44 lg:grid-cols-[1fr_0.9fr_1fr] lg:pb-24">
         <div className="z-10 max-w-xl">
           <h1 className="text-5xl font-extrabold leading-tight md:text-7xl">
             SAUDI VISA APPLICATIONS
@@ -54,7 +54,7 @@ function HeroSection() {
 
       <div className="absolute bottom-0 left-0 h-20 w-full bg-white [clip-path:polygon(0_35%,100%_0,100%_100%,0_100%)]" />
 
-      <div className="absolute bottom-10 left-1/2 z-20 w-[86%] max-w-6xl -translate-x-1/2 rounded-3xl bg-white px-6 py-5 text-slate-950 shadow-2xl md:px-10">
+      <div className="absolute bottom-4 left-1/2 z-20 w-[86%] max-w-6xl -translate-x-1/2 rounded-3xl bg-white px-6 py-5 text-slate-950 shadow-2xl md:px-10">
         <div className="grid gap-5 md:grid-cols-4">
           {stats.map((item) => (
             <div key={item.value} className="flex items-center gap-4">

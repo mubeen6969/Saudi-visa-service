@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx'
 import Process from './pages/Process.jsx'
 import VisaServices from './pages/VisaServices.jsx'
 import WhyUs from './pages/WhyUs.jsx'
+import Footer from './components/homepage/Footer.jsx'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/apply-now" element={<ApplyNow />} />
         </Routes>
       </main>
+      <Footer/>
     </>
   )
 }
