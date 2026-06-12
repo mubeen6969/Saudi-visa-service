@@ -32,12 +32,12 @@ function WhyChooseUs() {
     <section className="relative overflow-hidden bg-white px-5 pb-24 pt-8 text-[#082b42]">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-500">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-primary">
             Why Choose Us
           </p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
             Stamped With Trust{' '}
-            <span className="font-bold italic text-orange-500">And Quite Precision.</span>
+            <span className="font-bold italic text-primary">And Quite Precision.</span>
           </h2>
         </div>
 

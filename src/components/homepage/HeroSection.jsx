@@ -9,7 +9,7 @@ const stats = [
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[110vh] overflow-hidden bg-[#06293b] text-white">
+    <section className="relative min-h-[130vh] overflow-hidden bg-[#06293b] text-white">
       <div
         className="absolute inset-0 bg-cover bg-center "
         style={{ backgroundImage: 'url("/images/bg-image.png")' }}
@@ -41,9 +41,9 @@ function HeroSection() {
 
         <div className="z-10 hidden lg:block" />
 
-        <div className="z-10 max-w-md text-left lg:ml-auto lg:mt-28 lg:text-right">
-          <h2 className="text-5xl font-extrabold leading-tight md:text-6xl">
-            TRAVEL MADE EASY
+        <div className="z-10 md:w-[30vw] text-left lg:ml-auto lg:mt-28 absolute right-0 bottom-0">
+          <h2 className="text-xl  font-extrabold leading-tight md:text-6xl whitespace-nowrap">
+            <span className='ml-26'>TRAVEL</span> <br /> MADE EASY
           </h2>
           <p className="mt-4 text-base font-medium leading-7 text-white/95">
             Trusted visa experts helping you reach Saudi Arabia with confidence
@@ -54,11 +54,11 @@ function HeroSection() {
 
       <div className="absolute bottom-0 left-0 h-20 w-full bg-white [clip-path:polygon(0_35%,100%_0,100%_100%,0_100%)]" />
 
-      <div className="absolute bottom-4 left-1/2 z-20 w-[86%] max-w-6xl -translate-x-1/2 rounded-3xl bg-white px-6 py-5 text-slate-950 shadow-2xl md:px-10">
+      <div className="absolute hidden md:bottom-4 left-1/2 z-20 w-[86%] max-w-6xl -translate-x-1/2 rounded-3xl bg-white px-6 py-5 text-slate-950 shadow-2xl md:px-10">
         <div className="grid gap-5 md:grid-cols-4">
           {stats.map((item) => (
             <div key={item.value} className="flex items-center gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
                 {item.icon}
               </span>
               <span>

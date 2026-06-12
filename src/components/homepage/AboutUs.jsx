@@ -21,12 +21,12 @@ function AboutUs() {
           />
 
           <div className="relative z-10 max-w-xl pt-8">
-            <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-500">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-primary">
               About Us
             </p>
             <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
               Turning Saudi Travel{' '}
-              <span className="font-bold italic text-orange-500">Plans Into Reality.</span>
+              <span className="font-bold italic text-primary">Plans Into Reality.</span>
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-600">
               From the moment you decide to visit Saudi Arabia, we are here to help.

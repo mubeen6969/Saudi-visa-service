@@ -4,7 +4,7 @@ import { ArrowRight, Phone, Mail, Clock, Compass } from 'lucide-react';
 
 export default function Footer({ onBeginJourneyClick }) {
     return (
-        <footer id="footer-section" className="relative text-white overflow-hidden rounded-[40px] mt-6 bg-black">
+        <footer id="footer-section" className="relative text-white overflow-hidden rounded-tl-[40px] rounded-tr-[40px] mt-6 bg-black">
 
             {/* Background Image with Dark Gradient Overlays for High Contrast */}
             <img
@@ -13,23 +13,21 @@ export default function Footer({ onBeginJourneyClick }) {
                 className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-lighten pointer-events-none"
                 referrerPolicy="no-referrer"
             />
-            {/* Smooth Dark Vignette & Gradient Shading */}
-            {/* <div className="absolute inset-0 bg-gradient-to-t from-[#05111E] via-[#0D1C2E]/90 to-transparent" />
-      <div className="absolute inset-0 bg-black/40" /> */}
+
 
             {/* Main Container */}
             <div className="relative z-10 w-[90vw] mx-auto px-6 md:px-11 lg:px-11 pt-28 pb-12">
 
                 {/* UPPER CALL TO ACTION BLOCK */}
                 <div className="mb-20 max-w-2xl">
-                    <p className="text-[11px] md:text-xs font-bold tracking-[0.25em] uppercase font-display mb-3">
+                    <p className="text-[11px] md:text-xs font-light tracking-[0.25em] uppercase font-display mb-3">
                         NOW DEPARTING
                     </p>
                     <h2 className=" text-4xl md:text-5xl lg:text-6xl  tracking-tight leading-[1.1] mb-6">
                         Your Saudi <br />
                         Journey <span className="tracking-widest   font-semibold">Begins Here.</span>
                     </h2>
-                    <p className="text-white/85 text-[40px] md:text-base leading-relaxed mb-8 max-w-xl font-normal">
+                    <p className="text-white/85 text-2xl md:text-[23px] leading-relaxed mb-8 max-w-xl font-normal">
                         Whether you travel for sacred rites or to discover the Kingdom — we'll prepare every document so all that's left is the flight.
                     </p>
 
@@ -131,17 +129,19 @@ export default function Footer({ onBeginJourneyClick }) {
 
                 </div>
 
+
+            </div>
                 {/* BOTTOM COPYRIGHT ROW */}
-                <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 font-medium">
-                    <p>© 2026 Saudia Visa Services. All rights reserved.</p>
-                    <div className="flex gap-6">
+                <div className="bg-linear-to-r from-[#3CA5D4] to-[#0E3254] h-18 w-full pt-8 border-t border-white/5   gap-4 text-xs text-white font-thin ">
+                 <div className="flex justify-between w-[90vw] m-auto">
+                       <p>© 2026 Saudia Visa Services. All rights reserved.</p>
+                    <div className="flex gap-6 ">
                         <a href="#apply-section" className="hover:text-white transition-all">Services</a>
                         <a href="#status-check" className="hover:text-white transition-all">Process</a>
                         <a href="#apply-section" className="hover:text-white transition-all">Contact</a>
                     </div>
+                 </div>
                 </div>
-
-            </div>
         </footer>
     );
 }

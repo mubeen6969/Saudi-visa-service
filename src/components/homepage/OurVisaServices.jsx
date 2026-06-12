@@ -30,12 +30,12 @@ function OurVisaServices() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-500">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#E17245]">
               Our Visa Services
             </p>
             <h2 className="mt-4 max-w-2xl text-4xl font-medium leading-tight md:text-5xl">
               Three doorways into{' '}
-              <span className="font-bold italic text-orange-500">Saudi Arabia.</span>
+              <span className="font-bold italic text-[#E17245]">Saudi Arabia.</span>
             </h2>
           </div>
           <p className="max-w-xl text-base leading-7 text-slate-600 lg:mt-10">

@@ -80,7 +80,7 @@ export default function Testimonials() {
               className="bg-white rounded-[24px] p-8 shadow-[0_15px_40px_-15px_rgba(11,60,93,0.08)] border border-[#F5EFEB] hover:border-[#E06A3B]/30 hover:shadow-[0_20px_50px_-12px_rgba(224,106,59,0.1)] transition-all duration-300 flex flex-col justify-between relative group"
             >
               <div className="mb-6 flex">
-                <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-[#E06A3B] group-hover:bg-[#E06A3B] group-hover:text-white transition-colors duration-300">
+                <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-primary group-hover:bg-[#E06A3B] group-hover:text-white transition-colors duration-300">
                   <span className="text-3xl font-serif font-bold leading-none select-none">
                     “
                   </span>

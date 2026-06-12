@@ -3,3 +3,8 @@
 body {
   font-family: 'Archivo', sans-serif;
 }
+
+@theme {
+  --color-primary: #E17245;
+  --color-secondary: #06b6d4;
+}

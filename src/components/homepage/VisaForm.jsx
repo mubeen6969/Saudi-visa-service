@@ -120,7 +120,7 @@ export default function VisaForm({ onSuccess }){
   };
 
   return (
-    <form id="visa-application-form" onSubmit={handleSubmit} className="space-y-6 w-full">
+    <form id="visa-application-form" onSubmit={handleSubmit} className="space-y-6 w-full md:w-[45vw] mt-8">
       {/* Grid container */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
         

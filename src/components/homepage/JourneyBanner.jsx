@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 export default function JourneyBanner() {
   return (
-    <div className="w-full h-full bg-gradient-to-b from-[#135E74] via-[#0E4461] to-[#0A2640] text-white p-8 md:p-10 rounded-[32px] flex flex-col justify-between relative overflow-hidden shadow-2xl">
+    <div className="md:w-[40vw] w-full h-full bg-gradient-to-b from-[#135E74] via-[#0E4461] to-[#0A2640] text-white p-8 md:p-10 rounded-[32px] flex flex-col justify-between relative overflow-hidden shadow-2xl">
       {/* Decorative ambient lighting glow */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-cyan-400/20 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-teal-500/10 rounded-full blur-[100px] pointer-events-none" />

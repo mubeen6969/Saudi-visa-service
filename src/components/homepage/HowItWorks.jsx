@@ -33,13 +33,13 @@ function HowItWorks() {
           src="/images/how-it-works-leftbg.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-0 top-4 h-72 w-3/5 object-contain object-left-top opacity-45 mix-blend-screen md:h-[28rem]"
+          className="pointer-events-none absolute left-0 top-4 h-72 w-3/5 object-contain object-left-top opacity-100 mix-blend-screen md:h-[28rem]"
         />
         <img
           src="/images/how-it-works-rightbg.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 h-full w-1/2 object-cover object-right opacity-30 mix-blend-screen"
+          className="pointer-events-none absolute right-0 top-0 h-full w-1/2 object-center object-right opacity-100 mix-blend-screen"
         />
 
         <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.95fr_1fr]">
@@ -53,12 +53,12 @@ function HowItWorks() {
             </h2>
 
             <div className="mt-14 rounded-2xl border-4 border-sky-300 bg-white p-9 text-[#082b42] shadow-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-400">
+              <p className="text-xs font-bold uppercase tracking-[0.35em] text-primary">
                 Required Documents
               </p>
               <h3 className="mt-5 text-4xl font-semibold leading-tight">
                 Everything You Need,{' '}
-                <span className="font-extrabold italic text-orange-500">
+                <span className="font-extrabold italic text-primary">
                   Prepared Correctly.
                 </span>
               </h3>
@@ -67,7 +67,7 @@ function HowItWorks() {
                 <ul className="space-y-4 text-sm font-semibold text-slate-600">
                   {documents.map((document) => (
                     <li key={document} className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-500 text-[10px] font-bold text-white">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
                         +
                       </span>
                       {document}

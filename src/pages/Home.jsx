@@ -15,8 +15,10 @@ function Home() {
       <WhyChooseUs />
       <HowItWorks />
       <Testimonials/>
+      <div className='flex w-[90vw] m-auto justify-between md:flex-row flex-col'>
       <JourneyBanner/>
       <VisaForm/>
+      </div>
     </>
   )
 }
