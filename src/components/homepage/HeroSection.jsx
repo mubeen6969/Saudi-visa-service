@@ -54,7 +54,7 @@ function HeroSection() {
 
       <div className="absolute bottom-0 left-0 h-20 w-full bg-white [clip-path:polygon(0_35%,100%_0,100%_100%,0_100%)]" />
 
-      <div className="absolute hidden md:bottom-4 left-1/2 z-20 w-[86%] max-w-6xl -translate-x-1/2 rounded-3xl bg-white px-6 py-5 text-slate-950 shadow-2xl md:px-10">
+      <div className="absolute hidden md:block md:bottom-4 left-1/2 z-20 w-[86%] max-w-6xl -translate-x-1/2 rounded-3xl bg-white px-6 py-5 text-slate-950 shadow-2xl md:px-10">
         <div className="grid gap-5 md:grid-cols-4">
           {stats.map((item) => (
             <div key={item.value} className="flex items-center gap-4">
