@@ -7,7 +7,7 @@ const steps = [
 
 function Process() {
   return (
-   <h1>process page</h1>
+   <h1 className="h-screen bg-black text-white text-center ">process page</h1>
   )
 }
 

@@ -9,7 +9,7 @@ const services = [
 
 function VisaServices() {
   return (
-    <h1>vsia service page</h1>
+    <h1 className="h-screen bg-black text-white text-center ">vsia service page</h1>
   )
 }
 

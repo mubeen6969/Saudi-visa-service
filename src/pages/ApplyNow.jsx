@@ -1,6 +1,6 @@
 function ApplyNow() {
   return (
-        <h1>apply now page</h1>
+        <h1 className="h-screen bg-black text-white text-center ">apply now page</h1>
   )
 }
 

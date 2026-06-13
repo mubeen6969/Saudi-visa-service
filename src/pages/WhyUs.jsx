@@ -7,7 +7,7 @@ const reasons = [
 
 function WhyUs() {
   return (
-  <h1>why us</h1>
+  <h1 className="h-screen bg-black text-white text-center ">why us</h1>
   )
 }
 

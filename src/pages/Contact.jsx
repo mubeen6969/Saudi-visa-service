@@ -1,6 +1,6 @@
 function Contact() {
   return (
-  <h1>contact page</h1>
+  <h1 className="h-screen bg-black text-white text-center ">contact page</h1>
 
 )}
 
