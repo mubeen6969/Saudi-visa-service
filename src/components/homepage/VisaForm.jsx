@@ -87,7 +87,7 @@ export default function VisaForm({ onSuccess }) {
 
   try {
     const response = await axios.post(
-      "http://127.0.0.1:5000/api/applications",
+      "https://saudi-visa-service-production.up.railway.app/api/applications",
       formData
     );
     localStorage.setItem("trackingId", response.data.trackingId);

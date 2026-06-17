@@ -11,7 +11,7 @@ function Admin() {
   const fetchApplications = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/applications"
+        "https://saudi-visa-service-production.up.railway.app/api/applications"
       );
 
       console.log("Applications:", res.data);
