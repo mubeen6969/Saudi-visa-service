@@ -9,7 +9,11 @@ const app = express();
 // FIX CORS (VERY IMPORTANT)
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://saudi-visa-service-eight.vercel.app"
+    ],
+    credentials: true
   })
 );
 
