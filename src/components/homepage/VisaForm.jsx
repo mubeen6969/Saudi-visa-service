@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, CheckCircle, Clock, Globe, Shield, UserCheck } from 'lucide-react';
 
 
@@ -34,7 +36,8 @@ const VISA_TYPES = [
   { value: 'student', label: 'Student Visa' }
 ];
 
-export default function VisaForm({ onSuccess }){
+export default function VisaForm({ onSuccess }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -74,56 +77,55 @@ export default function VisaForm({ onSuccess }){
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!validate()) return;
 
-    setIsSubmitting(true);
-    
-    // Simulate server ingestion delay
-    setTimeout(() => {
-      const referenceNo = 'KSA-' + Math.floor(100000 + Math.random() * 900000);
-     const newInquiry = {
-        ...formData,
-        id: crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 9),
-        status: 'Pending Review',
-        submittedAt: new Date().toLocaleDateString(undefined, {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        }),
-        referenceNo
-      };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-      // Save to localStorage
-      const existing = localStorage.getItem('saudi_visa_inquiries');
-      const inquiriesList = existing ? JSON.parse(existing) : [];
-      inquiriesList.unshift(newInquiry);
-      localStorage.setItem('saudi_visa_inquiries', JSON.stringify(inquiriesList));
+  if (!validate()) return;
 
-      setIsSubmitting(false);
-      onSuccess(newInquiry);
+  setIsSubmitting(true);
 
-      // Reset form
-      setFormData({
-        fullName: '',
-        phoneNumber: '',
-        email: '',
-        country: '',
-        visaType: '',
-        travelDate: '',
-        message: ''
-      });
-    }, 1200);
-  };
+  try {
+    const response = await axios.post(
+      "http://127.0.0.1:5000/api/applications",
+      formData
+    );
+    localStorage.setItem("trackingId", response.data.trackingId);
+localStorage.setItem("applicantName", response.data.fullName);
+
+    console.log(response.data);
+
+    // ✅ SUCCESS PAGE REDIRECT
+    navigate("/success", {
+      state: {
+        name: response.data.fullName,
+        trackingId: response.data.trackingId
+      }
+    });
+
+    setFormData({
+      fullName: '',
+      phoneNumber: '',
+      email: '',
+      country: '',
+      visaType: '',
+      travelDate: '',
+      message: ''
+    });
+
+  } catch (error) {
+    console.log("FULL ERROR:", error);
+    alert(error.response?.data?.message || "Something went wrong");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <form id="visa-application-form" onSubmit={handleSubmit} className="space-y-6 w-full md:w-[45vw] mt-8">
       {/* Grid container */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-        
+
         {/* Full Name */}
         <div className="flex flex-col gap-1.5">
           <label className="text-[#8A9BA8] font-bold text-[10px] tracking-wider uppercase font-sans">
@@ -135,9 +137,8 @@ export default function VisaForm({ onSuccess }){
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Your full name"
-            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${
-              errors.fullName ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
-            }`}
+            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${errors.fullName ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
+              }`}
           />
           {errors.fullName && <span className="text-[10px] text-red-500 font-medium pl-1">{errors.fullName}</span>}
         </div>
@@ -153,9 +154,8 @@ export default function VisaForm({ onSuccess }){
             value={formData.phoneNumber}
             onChange={handleChange}
             placeholder="+1 555 000 0000"
-            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${
-              errors.phoneNumber ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
-            }`}
+            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${errors.phoneNumber ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
+              }`}
           />
           {errors.phoneNumber && <span className="text-[10px] text-red-500 font-medium pl-1">{errors.phoneNumber}</span>}
         </div>
@@ -171,9 +171,8 @@ export default function VisaForm({ onSuccess }){
             value={formData.email}
             onChange={handleChange}
             placeholder="you@email.com"
-            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${
-              errors.email ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
-            }`}
+            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${errors.email ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
+              }`}
           />
           {errors.email && <span className="text-[10px] text-red-500 font-medium pl-1">{errors.email}</span>}
         </div>
@@ -187,9 +186,8 @@ export default function VisaForm({ onSuccess }){
             name="country"
             value={formData.country}
             onChange={handleChange}
-            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 appearance-none bg-no-repeat bg-[right_1.25rem_center] ${
-              errors.country ? 'border-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
-            }`}
+            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 appearance-none bg-no-repeat bg-[right_1.25rem_center] ${errors.country ? 'border-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
+              }`}
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238A9BA8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E")`, paddingRight: '2.5rem', backgroundSize: '1.25rem' }}
           >
             <option value="">Select country</option>
@@ -209,9 +207,8 @@ export default function VisaForm({ onSuccess }){
             name="visaType"
             value={formData.visaType}
             onChange={handleChange}
-            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 appearance-none bg-no-repeat bg-[right_1.25rem_center] ${
-              errors.visaType ? 'border-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
-            }`}
+            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 appearance-none bg-no-repeat bg-[right_1.25rem_center] ${errors.visaType ? 'border-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
+              }`}
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238A9BA8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E")`, paddingRight: '2.5rem', backgroundSize: '1.25rem' }}
           >
             <option value="">Select a visa</option>
@@ -233,9 +230,8 @@ export default function VisaForm({ onSuccess }){
             value={formData.travelDate}
             onChange={handleChange}
             min={new Date().toISOString().split('T')[0]}
-            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${
-              errors.travelDate ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
-            }`}
+            className={`w-full px-5 py-3.5 bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] focus:bg-white border rounded-[16px] text-sm text-[#1B365D] font-medium font-sans outline-none transition-all duration-200 ${errors.travelDate ? 'border-red-400 focus:ring-1 focus:ring-red-400' : 'border-[#EBE6E0] focus:border-[#E06A3B]'
+              }`}
           />
           {errors.travelDate && <span className="text-[10px] text-red-500 font-medium pl-1">{errors.travelDate}</span>}
         </div>
