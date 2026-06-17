@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Process', path: '/process' },
   { label: 'Why Us', path: '/why-us' },
   { label: 'Contact', path: '/contact' },
+  { label: 'Admin', path: '/admin' },
   { label: 'TrackApplication', path: '/TrackApplication' },
   { label: 'Success', path: '/success' },
 ]
